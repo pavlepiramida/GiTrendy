@@ -8,13 +8,13 @@
       xmlns:media="using:Windows.UI.Xaml.Media"
       mc:Ignorable="d"
       Background="Transparent">
-    
+
     <Page.Resources>
         <media:AcrylicBrush x:Key="HostBackdropBrush"
                             BackgroundSource="HostBackdrop"
-                            TintColor="Gray"
+                            TintColor="DimGray"
                             TintOpacity="0.7"
-                            FallbackColor="Gray" />
+                            FallbackColor="DimGray" />
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment"
                     Value="Center" />
@@ -40,10 +40,18 @@
                     Value="Stretch" />
             <Setter Property="VerticalContentAlignment"
                     Value="Stretch" />
-            <Setter Property="BorderBrush"
-                    Value="DarkGray" />
-            <Setter Property="BorderThickness"
-                    Value="0.1" />
+            <Setter Property="Margin"
+                    Value="5" />
+        </Style>
+        <Style TargetType="HyperlinkButton">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="Padding"
+                    Value="0" />
         </Style>
     </Page.Resources>
 
@@ -57,7 +65,7 @@
             <TextBlock x:Uid="WelcomeHeader"
                        FontSize="50"
                        FontWeight="Bold" />
-            <TextBlock x:Uid="WelcomeSub"/>
+            <TextBlock x:Uid="WelcomeSub" />
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -142,12 +150,20 @@
                         <StackPanel Orientation="Horizontal"
                                     Spacing="5">
                             <icons:FluentIconElement Symbol="Book20Filled" />
-                            <TextBlock Text="{Binding PrettyName}"
-                                       FontSize="16"
-                                       FontWeight="SemiBold" />
+                            <HyperlinkButton Content="{Binding PrettyName}"
+                                             FontSize="16"
+                                             FontWeight="SemiBold"
+                                             Foreground="Black"
+                                             NavigateUri="{Binding url}" />
                         </StackPanel>
                         <TextBlock Grid.Row="1"
-                                   Text="{Binding description}" />
+                                   Text="{Binding description}"
+                                   TextTrimming="CharacterEllipsis">
+                            <ToolTipService.ToolTip>
+                                <TextBlock Text="{Binding description}"
+                                           TextWrapping="Wrap" />
+                            </ToolTipService.ToolTip>
+                        </TextBlock>
                         <Grid Grid.Row="2"
                               ColumnSpacing="5">
                             <Grid.ColumnDefinitions>
@@ -178,7 +194,7 @@
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Stretch">
                                 <icons:FluentIconElement Symbol="ArrowBounce16Filled"
-                                                         Foreground="Gold"/>
+                                                         Foreground="Gold" />
                                 <TextBlock Text="{Binding currentPeriodStars}" />
                             </StackPanel>
                         </Grid>
