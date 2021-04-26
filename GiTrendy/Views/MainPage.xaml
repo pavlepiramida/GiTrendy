@@ -168,7 +168,7 @@
                               ColumnSpacing="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="55" />
+                                <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="55" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
@@ -179,13 +179,13 @@
                                         Spacing="3">
                                 <icons:FluentIconElement Symbol="Star16Filled"
                                                          Foreground="Gold" />
-                                <TextBlock Text="{Binding stars}" />
+                                <TextBlock Text="{Binding PrettyStars}" />
                             </StackPanel>
                             <StackPanel Grid.Column="2"
                                         Orientation="Horizontal"
                                         Spacing="3">
                                 <icons:FluentIconElement Symbol="BranchFork16" />
-                                <TextBlock Text="{Binding forks}" />
+                                <TextBlock Text="{Binding PrettyForks}" />
                             </StackPanel>
                             <StackPanel Grid.Column="4"
                                         Width="Auto"
@@ -195,7 +195,7 @@
                                         VerticalAlignment="Stretch">
                                 <icons:FluentIconElement Symbol="ArrowBounce16Filled"
                                                          Foreground="Gold" />
-                                <TextBlock Text="{Binding currentPeriodStars}" />
+                                <TextBlock Text="{Binding PrettyCurrentPeriodStars}" />
                             </StackPanel>
                         </Grid>
                     </Grid>

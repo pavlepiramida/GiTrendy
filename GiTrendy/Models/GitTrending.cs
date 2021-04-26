@@ -23,5 +23,18 @@ namespace GiTrendy.Models
         public int currentPeriodStars { get; set; }
         public List<BuiltBy> builtBy { get; set; }
         public string PrettyName { get => $"{author}/{name}"; }
+
+        public string PrettyStars => PrettyDecimal(stars);
+        public string PrettyForks => PrettyDecimal(forks);
+        public string PrettyCurrentPeriodStars => PrettyDecimal(currentPeriodStars);
+
+        private string PrettyDecimal(int number)
+        {
+            double prettyNumber = (double)number / 1000;
+            if (prettyNumber < 1)
+                return number.ToString();
+
+            return $"{prettyNumber.ToString("0.0")}k";
+        }
     }
 }
