@@ -179,13 +179,29 @@
                                         Spacing="3">
                                 <icons:FluentIconElement Symbol="Star16Filled"
                                                          Foreground="Gold" />
-                                <TextBlock Text="{Binding PrettyStars}" />
+                                <TextBlock Text="{Binding PrettyStars}">
+                                    <ToolTipService.ToolTip>
+                                        <StackPanel Orientation="Horizontal"
+                                                    Spacing="3">
+                                            <TextBlock Text="Total stars:" />
+                                            <TextBlock Text="{Binding stars}" />
+                                        </StackPanel>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="2"
                                         Orientation="Horizontal"
                                         Spacing="3">
                                 <icons:FluentIconElement Symbol="BranchFork16" />
-                                <TextBlock Text="{Binding PrettyForks}" />
+                                <TextBlock Text="{Binding PrettyForks}">
+                                    <ToolTipService.ToolTip>
+                                        <StackPanel Orientation="Horizontal"
+                                                    Spacing="3">
+                                            <TextBlock Text="Total forks:" />
+                                            <TextBlock Text="{Binding forks}" />
+                                        </StackPanel>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="4"
                                         Width="Auto"
@@ -195,7 +211,15 @@
                                         VerticalAlignment="Stretch">
                                 <icons:FluentIconElement Symbol="ArrowBounce16Filled"
                                                          Foreground="Gold" />
-                                <TextBlock Text="{Binding PrettyCurrentPeriodStars}" />
+                                <TextBlock Text="{Binding PrettyCurrentPeriodStars}">
+                                     <ToolTipService.ToolTip>
+                                        <StackPanel Orientation="Horizontal"
+                                                    Spacing="3">
+                                             <TextBlock Text="Star rise:" />
+                                             <TextBlock Text="{Binding currentPeriodStars}" />
+                                         </StackPanel>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
                             </StackPanel>
                         </Grid>
                     </Grid>
